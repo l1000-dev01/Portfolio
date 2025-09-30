@@ -207,30 +207,35 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <p>&copy; 2025 Harvey. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Reveal sections and cards on scroll
-    const sections = document.querySelectorAll("section");
-    const cards = document.querySelectorAll(".card");
+<script>
+  const sections = document.querySelectorAll("section");
+  const cards = document.querySelectorAll(".card");
 
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
+  const revealOnScroll = () => {
+    const trigger = window.innerHeight * 0.85;
 
-      sections.forEach(sec => {
+    // Reveal sections
+    sections.forEach(sec => {
+      if (!sec.classList.contains("visible")) {
         const top = sec.getBoundingClientRect().top;
         if (top < trigger) sec.classList.add("visible");
-      });
+      }
+    });
 
-      cards.forEach(card => {
+    // Reveal cards
+    cards.forEach(card => {
+      if (!card.classList.contains("visible")) {
         const top = card.getBoundingClientRect().top;
         if (top < trigger) card.classList.add("visible");
-      });
-    };
+      }
+    });
+  };
 
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-  </script>
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
+</script>
 </body>
 </html>
