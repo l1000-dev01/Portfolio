@@ -3,58 +3,115 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Personal Site</title>
+  <title>Your Name — WordPress Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: #0f172a;
       color: #f8fafc;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     header {
-      background: linear-gradient(90deg, #3b82f6, #9333ea);
-      padding: 2rem;
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
+      padding: 2rem 1rem;
       text-align: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: .5rem 0 0; }
-    nav { margin-top: 1rem; }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    header p {
+      margin: .25rem 0 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    nav {
+      margin-top: 1rem;
+    }
     nav a {
       margin: 0 1rem;
       color: #f8fafc;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #facc15;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: #1e293b;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.9;
+    }
+    .hero .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #3b82f6;
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .hero .btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
     }
     section {
-      padding: 3rem 1.5rem;
-      max-width: 800px;
+      padding: 4rem 1.5rem;
+      max-width: 900px;
       margin: auto;
     }
     section h2 {
       color: #facc15;
+      font-size: 2rem;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
     .card {
       background: #1e293b;
-      padding: 1.5rem;
-      border-radius: 12px;
+      padding: 2rem;
+      border-radius: 16px;
       margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
+    ul { padding-left: 1.5rem; }
+    a { color: #3b82f6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     footer {
       text-align: center;
       padding: 2rem;
       background: #1e293b;
       margin-top: 2rem;
       color: #94a3b8;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Your Name</h1>
-    <p>WordPress Specialist • Web Developer</p>
+    <p>WordPress Designer • Developer • Problem Solver</p>
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -63,11 +120,17 @@
     </nav>
   </header>
 
+  <section class="hero">
+    <h2>Let’s Build Your Perfect WordPress Website</h2>
+    <p>I design and develop modern, responsive, and professional WordPress websites that help businesses stand out online. From business sites to eCommerce stores — I’ll make it happen.</p>
+    <a href="https://fiverr.com/yourprofile" target="_blank" class="btn">Hire Me on Fiverr</a>
+  </section>
+
   <section id="about">
     <h2>About Me</h2>
     <div class="card">
-      <p>Hello! I'm a developer specializing in clean, modern WordPress websites. 
-      I build custom designs, handle redesigns, and optimize sites for speed and usability.</p>
+      <p>Hello! I'm a professional WordPress developer who creates modern, responsive websites. 
+      Whether you need a fresh design, a complete revamp, or a fast eCommerce store, I’ll deliver clean code and a professional look that helps your business grow.</p>
     </div>
   </section>
 
@@ -75,7 +138,7 @@
     <h2>Services</h2>
     <div class="card">
       <ul>
-        <li>WordPress Website Design</li>
+        <li>Custom WordPress Website Design</li>
         <li>Website Redesign & Revamp</li>
         <li>WooCommerce Store Setup</li>
         <li>Responsive Landing Pages</li>
@@ -87,7 +150,8 @@
   <section id="portfolio">
     <h2>Portfolio</h2>
     <div class="card">
-      <p>Here you can showcase screenshots, case studies, or links to your work.</p>
+      <p>Showcase your work here with screenshots, case studies, or live links. 
+      A portfolio proves your skills and builds client trust.</p>
     </div>
   </section>
 
