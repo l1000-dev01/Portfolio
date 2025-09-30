@@ -203,27 +203,28 @@
     <p>&copy; 2025 Your Name. All rights reserved.</p>
   </footer>
 
+  <!-- IntersectionObserver for cards -->
   <script>
     const cards = document.querySelectorAll(".card");
 
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
-
-      cards.forEach((card, index) => {
-        if (!card.classList.contains("visible")) {
-          const top = card.getBoundingClientRect().top;
-          if (top < trigger) {
-            // Add a staggered delay for smooth effect
-            setTimeout(() => {
-              card.classList.add("visible");
-            }, index * 150);
-          }
-        }
-      });
+    const observerOptions = {
+      threshold: 0.2 // 20% of card visible
     };
 
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Staggered delay
+          const index = Array.from(cards).indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add("visible");
+          }, index * 150);
+          obs.unobserve(entry.target); // stop observing once visible
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach(card => observer.observe(card));
   </script>
 </body>
 </html>
