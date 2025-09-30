@@ -1,230 +1,154 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+}
 
-    header {
-      background: linear-gradient(135deg, #3b82f6, #9333ea);
-      padding: 2rem 1rem;
-      text-align: center;
-      color: white;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 600;
-      animation: fadeInDown 1s ease;
-    }
-    header p {
-      margin: .25rem 0 0;
-      font-size: 1rem;
-      opacity: 0.9;
-      animation: fadeInDown 1.3s ease;
-    }
-    nav {
-      margin-top: 1rem;
-      animation: fadeInDown 1.6s ease;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: #f8fafc;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #facc15; }
+header {
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: white;
+}
+header h1 { margin: 0; font-size: 2rem; font-weight: 600; }
+header p { margin: .25rem 0 0; font-size: 1rem; opacity: 0.9; }
+nav { margin-top: 1rem; }
+nav a {
+  margin: 0 1rem;
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+nav a:hover { color: #facc15; }
 
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem;
-      background: #1e293b;
-      animation: fadeInUp 1.5s ease;
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-      opacity: 0.9;
-    }
-    .hero .btn {
-      display: inline-block;
-      margin-top: 2rem;
-      background: #3b82f6;
-      color: white;
-      padding: 0.9rem 2rem;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.3s, background 0.3s;
-      animation: bounceIn 1.8s ease;
-    }
-    .hero .btn:hover {
-      background: #2563eb;
-      transform: scale(1.08);
-    }
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: #1e293b;
+}
+.hero h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; max-width: 700px; margin: auto; opacity: 0.9; }
+.hero .btn {
+  display: inline-block;
+  margin-top: 2rem;
+  background: #3b82f6;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+}
+.hero .btn:hover { background: #2563eb; transform: scale(1.08); }
 
-    section {
-      padding: 4rem 1.5rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      color: #facc15;
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+section { padding: 4rem 1.5rem; max-width: 900px; margin: auto; }
+section h2 { color: #facc15; text-align: center; margin-bottom: 2rem; }
 
-    /* Cards */
-    .card {
-      background: #1e293b;
-      padding: 2rem;
-      border-radius: 16px;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.6s ease, opacity 0.6s ease;
-      opacity: 0;
-      transform: translateY(40px) scale(0.95);
-    }
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    .card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.4);
-    }
+.card {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.card.visible { opacity: 1; transform: translateY(0) scale(1); }
+.card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
 
-    ul { padding-left: 1.5rem; }
-    a { color: #3b82f6; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+ul { padding-left: 1.5rem; }
+a { color: #3b82f6; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #1e293b;
-      margin-top: 2rem;
-      color: #94a3b8;
-      font-size: 0.9rem;
-      animation: fadeInUp 1s ease;
-    }
+footer { text-align: center; padding: 2rem; background: #1e293b; color: #94a3b8; font-size: 0.9rem; }
 
-    /* Animations */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bounceIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      50% { transform: scale(1.05); opacity: 1; }
-      70% { transform: scale(0.95); }
-      100% { transform: scale(1); }
-    }
-  </style>
+</style>
 </head>
 <body>
-  <header>
-    <h1>Harvey</h1>
-    <p>WordPress Designer • Developer • Problem Solver</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h2>Let’s Build Your Perfect WordPress Website</h2>
-    <p>I design and develop modern, responsive, and professional WordPress websites that help businesses stand out online. From business sites to eCommerce stores — I’ll make it happen.</p>
-    <a href="https://www.fiverr.com/scripter0101?public_mode=true" target="_blank" class="btn">Hire Me on Fiverr</a>
-  </section>
+<header>
+  <h1>Harvey</h1>
+  <p>WordPress Designer • Developer • Problem Solver</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>Hello! I'm a professional WordPress developer who creates modern, responsive websites. 
-      Whether you need a fresh design, a complete revamp, or a fast eCommerce store, I’ll deliver clean code and a professional look that helps your business grow.</p>
-    </div>
-  </section>
+<section class="hero">
+  <h2>Let’s Build Your Perfect WordPress Website</h2>
+  <p>I design and develop modern, responsive, and professional WordPress websites that help businesses stand out online. From business sites to eCommerce stores — I’ll make it happen.</p>
+  <a href="https://www.fiverr.com/scripter0101?public_mode=true" target="_blank" class="btn">Hire Me on Fiverr</a>
+</section>
 
-  <section id="services">
-    <h2>Services</h2>
-    <div class="card">
-      <ul>
-        <li>Custom WordPress Website Design</li>
-        <li>Website Redesign & Revamp</li>
-        <li>WooCommerce Store Setup</li>
-        <li>Responsive Landing Pages</li>
-        <li>Speed Optimization & Migration</li>
-      </ul>
-    </div>
-  </section>
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>Hello! I'm a professional WordPress developer who creates modern, responsive websites. 
+    Whether you need a fresh design, a complete revamp, or a fast eCommerce store, I’ll deliver clean code and a professional look that helps your business grow.</p>
+  </div>
+</section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="card">
-      <p>Showcase your work here with screenshots, case studies, or live links. 
-      A portfolio proves your skills and builds client trust.</p>
-    </div>
-  </section>
+<section id="services">
+  <h2>Services</h2>
+  <div class="card">
+    <ul>
+      <li>Custom WordPress Website Design</li>
+      <li>Website Redesign & Revamp</li>
+      <li>WooCommerce Store Setup</li>
+      <li>Responsive Landing Pages</li>
+      <li>Speed Optimization & Migration</li>
+    </ul>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:kopkopp550@gmail.com">kopkopp550@gmail.com</a></p>
-      <p>Fiverr: <a href="https://www.fiverr.com/scripter0101?public_mode=true" target="_blank">fiverr.com/yourprofile</a></p>
-    </div>
-  </section>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <div class="card">
+    <p>Showcase your work here with screenshots, case studies, or live links. 
+    A portfolio proves your skills and builds client trust.</p>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-  </footer>
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: <a href="mailto:kopkopp550@gmail.com">kopkopp550@gmail.com</a></p>
+    <p>Fiverr: <a href="https://www.fiverr.com/scripter0101?public_mode=true" target="_blank">fiverr.com/yourprofile</a></p>
+  </div>
+</section>
 
-  <!-- IntersectionObserver for cards -->
-  <script>
-    const cards = document.querySelectorAll(".card");
+<footer>
+  <p>&copy; 2025 Harvey. All rights reserved.</p>
+</footer>
 
-    const observerOptions = {
-      threshold: 0.2 // 20% of card visible
-    };
+<script>
+const cards = document.querySelectorAll('.card');
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Staggered delay
-          const index = Array.from(cards).indexOf(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add("visible");
-          }, index * 150);
-          obs.unobserve(entry.target); // stop observing once visible
-        }
-      });
-    }, observerOptions);
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible'); // reveal card
+      obs.unobserve(entry.target); // stop observing
+    }
+  });
+}, { threshold: 0.2 });
 
-    cards.forEach(card => observer.observe(card));
-  </script>
+cards.forEach(card => observer.observe(card));
+</script>
+
 </body>
 </html>
