@@ -12,28 +12,29 @@
       background: #0f172a;
       color: #f8fafc;
       line-height: 1.7;
+      overflow-x: hidden;
     }
     header {
       background: linear-gradient(135deg, #3b82f6, #9333ea);
       padding: 2rem 1rem;
       text-align: center;
       color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
     header h1 {
       margin: 0;
       font-size: 2rem;
       font-weight: 600;
+      animation: fadeInDown 1s ease;
     }
     header p {
       margin: .25rem 0 0;
       font-size: 1rem;
       opacity: 0.9;
+      animation: fadeInDown 1.3s ease;
     }
     nav {
       margin-top: 1rem;
+      animation: fadeInDown 1.6s ease;
     }
     nav a {
       margin: 0 1rem;
@@ -42,13 +43,13 @@
       font-weight: 500;
       transition: color 0.3s;
     }
-    nav a:hover {
-      color: #facc15;
-    }
+    nav a:hover { color: #facc15; }
+
     .hero {
       text-align: center;
       padding: 6rem 2rem;
       background: #1e293b;
+      animation: fadeInUp 1.5s ease;
     }
     .hero h2 {
       font-size: 2.5rem;
@@ -71,16 +72,25 @@
       font-size: 1.1rem;
       font-weight: 600;
       text-decoration: none;
-      transition: background 0.3s, transform 0.2s;
+      transition: transform 0.3s, background 0.3s;
+      animation: bounceIn 1.8s ease;
     }
     .hero .btn:hover {
       background: #2563eb;
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
+
     section {
       padding: 4rem 1.5rem;
       max-width: 900px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     section h2 {
       color: #facc15;
@@ -94,6 +104,11 @@
       border-radius: 16px;
       margin-bottom: 2rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
     ul { padding-left: 1.5rem; }
     a { color: #3b82f6; text-decoration: none; }
@@ -105,6 +120,23 @@
       margin-top: 2rem;
       color: #94a3b8;
       font-size: 0.9rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.05); opacity: 1; }
+      70% { transform: scale(0.95); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
@@ -166,5 +198,19 @@
   <footer>
     <p>&copy; 2025 Your Name. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll("section");
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
 </body>
 </html>
